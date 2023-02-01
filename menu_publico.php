@@ -1,7 +1,7 @@
 <?php 
-include "conn/conect.php"
-$lista_tipos= $conn->query('select *from tbtipos order by rotulo_tipo;');
-$rows_tipos = $lista_tipos->fetch_all();
+include "conn/conect.php">
+$lista_tipos=$conn->query("select *from tbtipos order by rotulo_tipo;");
+$rows_tipos =$lista_tipos->fetch_all();
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -40,9 +40,10 @@ $rows_tipos = $lista_tipos->fetch_all();
     <li><a href="index.php#destaques">Produtos</a></li>
     <!-- dropdown-->
     <li class="dropdown">
-    <a class="droopdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false" >
+    <a class="droopdown-toggle" data-toggle="dropdown" role="button"  aria-haspopup="true" aria-expanded="false">
      Tipos 
-     <span class="caret"></span>
+     <span class="caret">
+     </span>
     </a>
      <ul class="dropdown-menu">
      <?php foreach($rows_tipos as $row){?>
@@ -73,12 +74,7 @@ $rows_tipos = $lista_tipos->fetch_all();
     <li class="active">
      <a href="index.php">
      <span class="glyphicon gliphicon-user">&nbsp;ADIMIN/cliente</span>
-
      </a>
-    
-
-
-
     </li>
     </div>
  </nav>
