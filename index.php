@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="css/estilo.css">
     <title>Chuleta Quente Churrascaria</title>
 </head>
+<html>
+
 <body class="fundofixo">
     <!-- area de menu -->
     <?php include 'menu_publico.php'; ?>

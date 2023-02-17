@@ -1,37 +1,45 @@
-<html lang="pt-BR">
-<<?php 
-include '../conn/conect.php';
-// iniciar a verificaçao do login
-if($_POST){
-    $LOGIN = $_POST['Login_usuario'];
-    $SENHA= $_POST['Login_usuario'];
-    $LOGINRES =$Conn->query("select * from tbusuario where login_usuario =$'login' and senha_usuario = md5('$senha')");
-    $rowLOGIN= $Loginres->fetch_assoc();
-    $numrow =mysqli_num_rows($Loginres);
-    // se a sessao nao exitir 
-    $sesaoAntiga =session_name('chulettaa');
-    session_start();
-    $session_name_new =session_name();
+<?php 
+    include '../conn/connect.php';
+    
+    // Iniciar a verificação do login
 
+    if($_POST){
+        $login = $_POST['login_usuario'];
+        $senha = md5($_POST['senha_usuario']);
+        $loginRes = $conn->query("select * from tbusuarios where login_usuario = '$login' and senha_usuario = md5('$senha')");
+        $rowLogin = $loginRes->fetch_assoc();
+        $numRow = mysqli_num_rows($loginRes);
+        
+        // se a sessão não existir
+        
+        if(!isset($_SESSION)){
+            $sessaoAntiga = session_name('chuleta');
+            session_start();
+            $session_name_new = session_name();
+        }
+        if($numRow>0){
+            $_SESSION['login_usuario'] = $login;
+            $_SESSION['nivel_usuario'] = $rowLogin['nivel_usuario'];
+            $_SESSION['nome_da_sessao'] = session_name();
 
-    if($numrow>0){
-    $_SESSION['LOGIN_usuarios'] = $login;
-    $_SESSION['Nivel usuario']=$rowLOGIN['nivel_usuario'];
-    $_SESSION['nome_da_sessao'] = session_name();
-   if($rowLOGIN)['nivel_usuario']=='sup'){
-    echo "<script>Window,open(index.php','_self)</script>";
-   }
-  else{
-    echo  "<script>Window,open('index.php?cliente=".$login."','_self';)</script>";
+            if($rowLogin['nivel_usuario']=='sup'){
+                echo "<script> window.open('index.php', '_self') </script>";
+            }
 
-  }
-}else{
-    echo <"script>Window"
-}
+            else{
+                echo "<script> window.open('../cliente/index.php?cliente=".$login."', '_self') </script>";
+            }
+        } else{
+            echo "<script> window.open('invasor.php', '_self') </script>";
+        }
     }
-    }
+                   
 
 ?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="refresh" content="30;URL=../index.php">
@@ -89,3 +97,11 @@ if($_POST){
             </article>
         </section>
     </main>
+
+
+    <!-- Link arquivos Bootstrap js -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+</body>
+
+</html>

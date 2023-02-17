@@ -1,6 +1,6 @@
 <?php
 include "conn/connect.php";
-$busca=$ Get_['buscar'];
+$busca=$Get_['buscar'];
 $Lista = $conn->query("select * from vw_produtos where descri_Poroduto like '%".busca."'");
 $row_produto = $Lista->fetch_assoc();
 $num_linhas = $lista->num_rows; 

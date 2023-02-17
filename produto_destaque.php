@@ -1,3 +1,4 @@
+?>
 $lista = $conn->query("select * from vw_");
 $row_Produtos =$lista->fetch_assoc();
 $num_linhas - $lista->num_rows;

@@ -1,0 +1,17 @@
+/* definindo nosso estilo... */ 
+
+@charset "utf8";
+
+.fundofixo{
+    background: url(../images/bg-fogo.jpg) no-repeat fixed;
+    -webkit-background-size:cover;
+    background-size: cover;
+    
+}
+
+body{
+    margin-top: 40px;
+    padding: 40px;
+}
+
+
