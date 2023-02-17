@@ -2,6 +2,35 @@
 <<?php 
 include '../conn/conect.php';
 // iniciar a verificaçao do login
+if($_POST){
+    $LOGIN = $_POST['Login_usuario'];
+    $SENHA= $_POST['Login_usuario'];
+    $LOGINRES =$Conn->query("select * from tbusuario where login_usuario =$'login' and senha_usuario = md5('$senha')");
+    $rowLOGIN= $Loginres->fetch_assoc();
+    $numrow =mysqli_num_rows($Loginres);
+    // se a sessao nao exitir 
+    $sesaoAntiga =session_name('chulettaa');
+    session_start();
+    $session_name_new =session_name();
+
+
+    if($numrow>0){
+    $_SESSION['LOGIN_usuarios'] = $login;
+    $_SESSION['Nivel usuario']=$rowLOGIN['nivel_usuario'];
+    $_SESSION['nome_da_sessao'] = session_name();
+   if($rowLOGIN)['nivel_usuario']=='sup'){
+    echo "<script>Window,open(index.php','_self)</script>";
+   }
+  else{
+    echo  "<script>Window,open('index.php?cliente=".$login."','_self';)</script>";
+
+  }
+}else{
+    echo <"script>Window"
+}
+    }
+    }
+
 ?>
 <head>
     <meta charset="UTF-8">
