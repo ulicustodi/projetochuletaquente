@@ -10,78 +10,92 @@
 <body>
    
 <?php 
- 
- require 'mailer/PHPMailerAutoload.php';
 
- $mail = new PHPMailer();
- $mail->isSMTP();
- $mail->SMPTAuth=true;
- $mail->SMTPSecure = 'tls';
- $mail->Username = 'exemplo@gmail.com';
- $mail->Password = 'senha';
- $mail->Port = 3306;
+namespace app\Comunication;
+  use PHPMAILER\PHPMAILER\PHPMAILER;
+  use PHPMAILER\PHPMAILER\EXCEPTION;
+use Stringable;
 
- $mail->setFrom('remetente@email.com.br');
-$mail->addReplyTo('no-reply@email.com.br');
-$mail->addAddress('email@email.com.br', ‘Nome’);
-$mail->addAddress('email@email.com.br', 'Contato'’);
-$mail->addCC('email@email.com.br', 'Cópia');
-$mail->addBCC('email@email.com.br', 'Cópia Oculta')
+class Email{
 
-$mail->isHTML(true);
-$mail->Subject = 'Assunto do email';
-$mail->Body    = 'Este é o conteúdo da mensagem em <b>HTML!</b>';
-$mail->AltBody = 'Para visualizar essa mensagem acesse http://site.com.br/mail';
-$mail->addAttachment('/tmp/image.jpg', 'nome.jpg');
+const Host ='smtp.gmail.com';
+const  USER ='ulicustodio@gmail.com';
+const  PASS ='smtp.gmail.com';
+const  Secure= 'chuletaquente';
+const  Port =   '3306';
+const  charset= 'UTEF';
 
-if(!$mail->send()) {
-    echo 'Não foi possível enviar a mensagem.<br>';
-    echo 'Erro: ' . $mail->ErrorInfo;
-} else {
-    echo 'Mensagem enviada.';
+
+const FROM_Email ='ulicustodio@gamil.com';
+const FROM_NAME  = 'Ulisses Renato';
+
+
+
+private $error;
+public function geterror(){
+    return $this->error;
 }
 
-$mail->SMTPDebug = 3;
-$mail->Debugoutput = 'html';
-$mail->setLanguage('pt');
 
-require 'mailer/PHPMailerAutoload.php';
+}
+//*
+  //@param string array $addreses
+ //@ param string $subject
+ // @param string $body
+ // @param string array $attachments
+ // @param atring array $css
+ // @param string array $bccs
+ //@return  boolean
+   //*  
+ Public function sendemail($addders,$subject,$body,$attachments = [], $css = [], $bccs= []){
+ $this->error ='';
+}
 
-require 'mailer/PHPMailerAutoload.php';
+$obmail = new PHPMAILER(true);
+try{
 
-     if (isset($_POST['assunto']) && !empty($_POST['assunto'])) {
-               $assunto = $_POST['assunto'];
-   }
-   if (isset($_POST['mensagem']) && !empty($_POST['mensagem'])) {
-                $mensagem = $_POST['mensagem'];
-    }
+$obEmaiL->isSmtp(true);
+$obEmaiL->HOST = self::host;
+$obEmaiL-> SMTPAuth=true;
+$obEmaiL-> Username=self::User;
+$obEmaiL-> Password=self::PASS;
+$obEmail->SMTPSecure=self::Secure;
+$oEbmaiL-> Port = self::Port;
+$obEmaiL->charSet =self::CHARSET;
+}
 
-    $mail = new PHPMailer;
- 
-    $mail->isSMTP();
-   $mail->Host = 'smtp.gmail.com';
-  $mail->SMTPAuth = true;
-  $mail->SMTPSecure = 'tls';
-  $mail->Username = 'exemplo@gmail.com';
-   $mail->Password = 'senha';
-   $mail->Port = 587;
+$obEmail->setfrom(self::FROM_EMAIL,self::FROM_Name);
 
-   $mail->setFrom('ulicustodio@gmail.com', 'Contato');
-   $mail->addAddress(' ulicustodio@mail.com.br');
+$addresses = is_array($addreses) ? $addreses :[$addreses];
+foreach($addders as $addders){
+    $obmail->addAddress(address);
+}
 
-  $mail->isHTML(true);
- 
-   $mail->Subject = $assunto;
-   $mail->Body    = nl2br($mensagem);
-  $mail->AltBody = nl2br(strip_tags($mensagem));
+$attachments = is_array($attachments) ? $attachements : [$attachments];
 
-  if(!$mail->send()) {
-       echo 'Não foi possível enviar a mensagem.<br>';
-        echo 'Erro: ' . $mail->ErrorInfo;
-             } else {
-       header('Location: index.php?enviado');
-   }
+foreach($attachements as $attachements){
+    $obmail->addAttachment(attachements);
+}
 
 
+$css = is_array($ccs) ? $css :[$ccs];
+foreach($css as $cc){
+    $obmail->addCC($cc);
 
+    $bss = is_array($bcs) ? $bss :[$bcs];
+    foreach($bss as $bcc){
+        $obmail->addbCC($cc);
+
+  $obmai->isHTML(true);
+  $obmail->Subject =$subject;
+  $obmail->Body=$body;
+
+}
+
+return $obmail->send();
+
+}'catch'(PHPMAILERException){
+    $this->error =$e->getMessage();
+  return false;
+}
 
