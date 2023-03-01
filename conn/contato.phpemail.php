@@ -64,7 +64,7 @@ $oEbmaiL-> Port = self::Port;
 $obEmaiL->charSet =self::CHARSET;
 }
 
-$obEmail->setfrom(self::FROM_EMAIL,self::FROM_Name);
+$obEmaiL->setfrom(self::FROM_EMAIL,self::FROM_Name);
 
 $addresses = is_array($addreses) ? $addreses :[$addreses];
 foreach($addders as $addders){
