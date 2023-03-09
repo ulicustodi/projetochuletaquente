@@ -9,6 +9,6 @@ $subject='ola Mundo:)';
 $body ='<b>Ola Mundo</b><i>Ola mundo</';
 
 $obEmail= new EMAIL;
-$Sucesso= $obEmail-> sendEmail ($address,$subject,$body);
+$Sucesso= $obEmail-> semdEmail ($address,$subject,$body);
 
 echo $sucesso ? 'Messagem enviada com sucesso!' : $obEmail->getError();

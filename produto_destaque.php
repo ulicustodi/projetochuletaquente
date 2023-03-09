@@ -1,4 +1,4 @@
-?>
+<?php
 $lista = $conn->query("select * from vw_");
 $row_Produtos =$lista->fetch_assoc();
 $num_linhas - $lista->num_rows;
@@ -10,7 +10,7 @@ $num_linhas - $lista->num_rows;
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title> Produto Detalhes</title>
 </head>
 
 <body>
@@ -29,7 +29,7 @@ $num_linhas - $lista->num_rows;
     <div class="col-sm-6-md-4">
     <a href="produto_detalhe.php?id_produto=<?php echo$rowPortipo['id_produto']?>">
 </strong>
-<img src="images/<?php echo $rowPorTipo['imagem_produto']?>" class="img-responsive img-rounded">
+<img src="img.jpg" class="img-responsive img-rounded">
 </a>
 <div class="caption text-right">
 <h3 class="text-danger">
@@ -56,7 +56,7 @@ $num_linhas - $lista->num_rows;
 <?php }while($rowPorTipo = $listaPorTipo -> fetch_assoc()); ?>
 </div>
 </div>
-<?php{?>
+<?php?>
     </div>
     </body>
 

@@ -17,12 +17,11 @@ $num_linhas = $lista->num_rows;
     <title>Busca por palavra</title>
 </head>
 <body>
-   ?php 
-</body>
-</html>
-$lista = $conn->query("select * from vw_");
-$row_Produtos =$lista->fetch_assoc();
-$num_linhas - $lista->num_rows;
+   <?php 
+ 
+ $lista = $conn->query("select * from vw_");
+ $row_Produtos =$lista->fetch_assoc();
+ $num_linhas - $lista->num_rows;
 ?>
 
 <!DOCTYPE html>
@@ -77,11 +76,12 @@ $num_linhas - $lista->num_rows;
 <?php }while($rowPorTipo = $listaPorTipo -> fetch_assoc()); ?>
 </div>
 </div>
-<?php{?>
+<?php?>
     </div>
     </body>
 
-
+    </body>
+</html>
 
 
 

@@ -38,16 +38,8 @@ public function geterror(){
 
 
 }
-//*
-  //@param string array $addreses
- //@ param string $subject
- // @param string $body
- // @param string array $attachments
- // @param atring array $css
- // @param string array $bccs
- //@return  boolean
-   //*  
- Public function sendemail($addders,$subject,$body,$attachments = [], $css = [], $bccs= []){
+
+   function sendemail($addders,$subject,$body,$attachments = [], $css = [], $bccs= []){
  $this->error ='';
 }
 
@@ -64,7 +56,7 @@ $oEbmaiL-> Port = self::Port;
 $obEmaiL->charSet =self::CHARSET;
 }
 
-$obEmaiL->setfrom(self::FROM_EMAIL,self::FROM_Name);
+$ObEmaiL->setfrom(self::FROM_EMAIL,self::FROM_Name);
 
 $addresses = is_array($addreses) ? $addreses :[$addreses];
 foreach($addders as $addders){

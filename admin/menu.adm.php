@@ -32,8 +32,8 @@
     <div class="collapse navbar-collapse" id="defaultNavbar">
         <ul class="nav navbar-nav navbar-right">
             <li>
-                <button type="button" class="btn btn-danger navbar-btn disabled">
-                    Olá, <?php echo($_SESSION['login_usuario']); ?>!
+             <button type= "button" class="btn btn-danger navbar-btn disabled">
+                Olá, <?php echo($_GET['login_usuario']);?>!
                 </button>
             </li>
             <li class="active"><a href="index.php">ADMIN</a></li>

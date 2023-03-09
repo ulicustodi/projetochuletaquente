@@ -47,7 +47,7 @@ if($_GET){
 // selecionar od dados de chave estrangeira (lista de tipos de produtos )
 $consulta_fk = "select * from tbtipos order by rotulo_tipo asc";
 $lista_fk =$conn->query($consulta_fk)
-$consulta_fk= "select * from tbtipos order by rotulo_tipo asc";
+$consulta_fk ="select * from tbtipos order by rotulo_tipo asc";
 $lista_fk = $conn->query($consulta_fk);
 $row_fk = $lista_fk->fetch_assoc();
 $nlinhas = $lista_fk->num_rows;
@@ -55,7 +55,7 @@ $nlinhas = $lista_fk->num_rows;
 
 ?>
 
-?<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <title></title>
@@ -78,7 +78,7 @@ $nlinhas = $lista_fk->num_rows;
 
         </button>
     </a>
-    inserindo Produtos
+      inserindo Produtos
         </h2>
      </h2>
 
@@ -92,6 +92,7 @@ $nlinhas = $lista_fk->num_rows;
    <select name="id_tipo_produto" id="tipo_produto" class="form-control" require>
     <?php do {?>
      <opition value="<?php echo $row_fk['id_tipo']?>">
+    
     </option>
     
 
