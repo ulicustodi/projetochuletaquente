@@ -15,4 +15,3 @@
     <?php include 'adm_options.php'; ?>
 
 </body>
-</html>

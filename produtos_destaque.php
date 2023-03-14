@@ -3,7 +3,6 @@
     $lista = $conn->query("select * from vw_tbprodutos where destaque_produto = 'Sim';");
     $row_destaque = $lista->fetch_assoc();
     $num_linhas = $lista->num_rows;
-
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +31,7 @@
 
             <?php if($num_linhas>0){?>
 
-                <h2 class="breadcrumb alert-danger">  
+                <h2 class="breadcrumb alert-danger center">  
                     <a href="javascript:window.history.go(-1)" class="btn btn-danger">
                         <span class="glyphicon glyphicon-chevron-left">
 

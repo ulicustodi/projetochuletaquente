@@ -19,15 +19,6 @@
 </head>
     <body>
       
-    <div data-bs-theme="dark" class="p-3 text-body bg-body">
-  <nav aria-label="breadcrumb">
-    <ol class="breadcrumb">
-      <li class="breadcrumb-item"><a href="#">Color modes</a></li>
-      <li class="breadcrumb-item active" aria-current="page">Dark</li>
-    </ol>
-  </nav>
-
-  
         <!-- Mostrar se a Consulta retornar vazia  -->
 
         <?php if($num_linhas == 0){?>
@@ -40,7 +31,7 @@
 
             <?php if($num_linhas>0){?>
 
-                <h2 class="breadcrumb alert-danger">  
+                <h2 class="breadcrumb alert-danger center">  
                     <a href="javascript:window.history.go(-1)" class="btn btn-danger">
                         <span class="glyphicon glyphicon-chevron-left">
 
@@ -55,7 +46,7 @@
                             
                             <div class="thumbnail">
                                 <a href="produto_detalhes.php?id_produto=<?php echo $row_produtos['id_produto'] ?>">
-                                    <img src="img/" <?php echo $row_produtos['imagem_produto'] ?>class="img-responsive img-rounded">
+                                    <img src="images/<?php echo $row_produtos['imagem_produto'] ?>" class="img-responsive img-rounded">
                                 </a>   
                                 
                                 <div class="caption text-right">

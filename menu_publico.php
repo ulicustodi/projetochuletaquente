@@ -10,6 +10,8 @@ $rows_tipos = $lista_tipos->fetch_all();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Menu Público</title>
 </head>
@@ -31,7 +33,7 @@ $rows_tipos = $lista_tipos->fetch_all();
                 
                 </button>
                 <a href="index.php" class="navbar-bra">
-                    <img width="80px" src="images/logo.png" alt="logo ">
+                    <img width="80px" src="images/logo.png" alt="logo">
                 </a>
             </div>
             
@@ -40,7 +42,38 @@ $rows_tipos = $lista_tipos->fetch_all();
             <!-- nav direita  -->
 
             <div class="collapse navbar-collapse" id="menupublico">
+
+                    <button type="button" class="btn btn-danger active" style="margin-left: 480px; margin-top: 10px; margin-bottom: 0px;" data-toggle="modal" data-target="#myModal">Faça sua Reserva! </button>
+
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title">Regras da Promoção</h4>
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                </div>
+
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    A solicitação da reserva deve ocorrer com 48 horas de antecedência; <br>
+                                    A promoção é válida somente em 90 dias.
+                                </div>
+
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="submit" class="btn btn-danger">Enviar Pedido de Reserva</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>   
+                   
+
                 <ul class="nav navbar-nav navbar-right">
+                    
                     <li class="active">
                         <a href="index.php">
                             <span class="glyphicon glyphicon-home"></span>
@@ -97,11 +130,12 @@ $rows_tipos = $lista_tipos->fetch_all();
                             <span class="glyphicon glyphicon-user">&nbsp;Admin|Cliente</span>
                         </a>
                     </li>
+
                 </ul>
             </div>
 
         </div>
     </nav>
-    
+
 </body>
 </html>
